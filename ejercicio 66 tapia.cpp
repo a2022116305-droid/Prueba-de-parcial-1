@@ -1,11 +1,14 @@
-// Ejercicio 66 - K-esimo mayor distinto
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int dist[100];
-    int n, k, cd = 0;
+    int distintos[100];
+    int n;
+    int k;
+    int cant = 0;
+    int repetido;
+    int auxiliar;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -13,36 +16,40 @@ int main() {
     cin >> k;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
-
-    // primero me quedo con los valores distintos
     for (int i = 0; i < n; i++) {
-        bool esta = false;
-        for (int j = 0; j < cd; j++) {
-            if (dist[j] == v[i]) esta = true;
+        cin >> v[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        repetido = 0;
+
+        for (int j = 0; j < cant; j++) {
+            if (distintos[j] == v[i]) {
+                repetido = 1;
+            }
         }
-        if (!esta) {
-            dist[cd] = v[i];
-            cd++;
+
+        if (repetido == 0) {
+            distintos[cant] = v[i];
+            cant = cant + 1;
         }
     }
 
-    if (k < 1 || k > cd) {
+    for (int i = 0; i < cant - 1; i++) {
+        for (int j = 0; j < cant - 1 - i; j++) {
+            if (distintos[j] < distintos[j + 1]) {
+                auxiliar = distintos[j];
+                distintos[j] = distintos[j + 1];
+                distintos[j + 1] = auxiliar;
+            }
+        }
+    }
+
+    if (k < 1 || k > cant) {
         cout << "No existe ese K-esimo mayor distinto" << endl;
-        return 0;
+    } else {
+        cout << k << ".er mayor distinto = " << distintos[k - 1] << endl;
     }
-
-    for (int i = 0; i < k; i++) {
-        int pos = i;
-        for (int j = i + 1; j < cd; j++) {
-            if (dist[j] > dist[pos]) pos = j;
-        }
-        int aux = dist[i];
-        dist[i] = dist[pos];
-        dist[pos] = aux;
-    }
-
-    cout << k << ".er mayor distinto = " << dist[k - 1] << endl;
 
     return 0;
 }

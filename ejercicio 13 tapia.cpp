@@ -1,4 +1,3 @@
-// Ejercicio 13 - Reemplazar negativos por cero
 #include <iostream>
 using namespace std;
 
@@ -16,6 +15,7 @@ int main() {
         }
     }
 
+    cout << "Resultado: ";
     for (int i = 0; i < 7; i++) {
         cout << v[i] << " ";
     }

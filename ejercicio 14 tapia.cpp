@@ -1,4 +1,3 @@
-// Ejercicio 14 - Sumar posiciones pares
 #include <iostream>
 using namespace std;
 
@@ -11,9 +10,10 @@ int main() {
         cin >> v[i];
     }
 
-    // avanzo de 2 en 2 arrancando en la posicion 0
-    for (int i = 0; i < 8; i = i + 2) {
-        suma += v[i];
+    for (int i = 0; i < 8; i++) {
+        if (i % 2 == 0) {
+            suma = suma + v[i];
+        }
     }
 
     cout << "Suma indices pares = " << suma << endl;

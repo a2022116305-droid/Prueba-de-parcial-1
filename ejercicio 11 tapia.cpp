@@ -1,4 +1,3 @@
-// Ejercicio 11 - Duplicar cada elemento
 #include <iostream>
 using namespace std;
 
@@ -14,6 +13,7 @@ int main() {
         v[i] = v[i] * 2;
     }
 
+    cout << "Resultado: ";
     for (int i = 0; i < 5; i++) {
         cout << v[i] << " ";
     }

@@ -1,10 +1,11 @@
-// Ejercicio 35 - Compactar ceros al final
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
+    int aux[100];
     int n;
+    int pos = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,22 +15,20 @@ int main() {
         cin >> v[i];
     }
 
-    int k = 0;
     for (int i = 0; i < n; i++) {
         if (v[i] != 0) {
-            v[k] = v[i];
-            k++;
+            aux[pos] = v[i];
+            pos = pos + 1;
         }
     }
 
-    // el resto lo relleno con ceros
-    while (k < n) {
-        v[k] = 0;
-        k++;
+    for (int i = pos; i < n; i++) {
+        aux[i] = 0;
     }
 
+    cout << "Resultado: ";
     for (int i = 0; i < n; i++) {
-        cout << v[i] << " ";
+        cout << aux[i] << " ";
     }
     cout << endl;
 

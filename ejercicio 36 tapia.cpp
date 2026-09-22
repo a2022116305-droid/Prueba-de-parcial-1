@@ -1,11 +1,12 @@
-// Ejercicio 36 - Eliminar duplicados conservando primera aparicion
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int res[100];
-    int n, k = 0;
+    int resultado[100];
+    int n;
+    int cant = 0;
+    int repetido;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -16,21 +17,23 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        bool repetido = false;
-        for (int j = 0; j < k; j++) {
-            if (res[j] == v[i]) {
-                repetido = true;
-                break;
+        repetido = 0;
+
+        for (int j = 0; j < cant; j++) {
+            if (resultado[j] == v[i]) {
+                repetido = 1;
             }
         }
-        if (!repetido) {
-            res[k] = v[i];
-            k++;
+
+        if (repetido == 0) {
+            resultado[cant] = v[i];
+            cant = cant + 1;
         }
     }
 
-    for (int i = 0; i < k; i++) {
-        cout << res[i] << " ";
+    cout << "Sin duplicados: ";
+    for (int i = 0; i < cant; i++) {
+        cout << resultado[i] << " ";
     }
     cout << endl;
 

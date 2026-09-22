@@ -1,4 +1,3 @@
-// Ejercicio 1 - Leer y mostrar un vector
 #include <iostream>
 using namespace std;
 
@@ -10,6 +9,7 @@ int main() {
         cin >> v[i];
     }
 
+    cout << "El vector es: ";
     for (int i = 0; i < 5; i++) {
         cout << v[i] << " ";
     }

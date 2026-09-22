@@ -1,10 +1,13 @@
-// Ejercicio 96 - Longitud minima con suma al menos S
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int n, s;
+    int n;
+    int s;
+    int suma;
+    int largo;
+    int menorLargo = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -12,28 +15,29 @@ int main() {
     cin >> s;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
-    int ini = 0;
-    int suma = 0;
-    int mejor = n + 1;
+    for (int i = 0; i < n; i++) {
+        suma = 0;
 
-    for (int fin = 0; fin < n; fin++) {
-        suma += v[fin];
+        for (int j = i; j < n; j++) {
+            suma = suma + v[j];
+            largo = j - i + 1;
 
-        // achico la ventana mientras siga alcanzando S
-        while (suma >= s) {
-            int largo = fin - ini + 1;
-            if (largo < mejor) mejor = largo;
-            suma -= v[ini];
-            ini++;
+            if (suma >= s) {
+                if (menorLargo == 0 || largo < menorLargo) {
+                    menorLargo = largo;
+                }
+            }
         }
     }
 
-    if (mejor == n + 1) {
+    if (menorLargo == 0) {
         cout << "No existe un subarreglo con esa suma" << endl;
     } else {
-        cout << "Longitud minima = " << mejor << endl;
+        cout << "Longitud minima = " << menorLargo << endl;
     }
 
     return 0;

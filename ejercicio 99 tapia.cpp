@@ -1,28 +1,37 @@
-// Ejercicio 99 - Duplicado y faltante en 1..N
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int conteo[101];
     int n;
+    int cantidad;
+    int duplicado = -1;
+    int faltante = -1;
 
     cout << "Ingrese N: ";
     cin >> n;
 
-    for (int i = 0; i <= n; i++) conteo[i] = 0;
-
     cout << "Ingrese los elementos: ";
     for (int i = 0; i < n; i++) {
         cin >> v[i];
-        conteo[v[i]]++;
     }
 
-    int duplicado = -1, faltante = -1;
+    for (int valor = 1; valor <= n; valor++) {
+        cantidad = 0;
 
-    for (int i = 1; i <= n; i++) {
-        if (conteo[i] == 2) duplicado = i;
-        if (conteo[i] == 0) faltante = i;
+        for (int i = 0; i < n; i++) {
+            if (v[i] == valor) {
+                cantidad = cantidad + 1;
+            }
+        }
+
+        if (cantidad == 0) {
+            faltante = valor;
+        }
+
+        if (cantidad > 1) {
+            duplicado = valor;
+        }
     }
 
     cout << "Duplicado = " << duplicado;

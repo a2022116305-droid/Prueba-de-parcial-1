@@ -1,38 +1,44 @@
-// Ejercicio 89 - Agua atrapada entre barras
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int mayorIzquierda;
+    int mayorDerecha;
+    int menorDeLosDos;
+    int agua = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
 
     cout << "Ingrese las alturas: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
-    int izq = 0;
-    int der = n - 1;
-    int maxIzq = 0, maxDer = 0;
-    int agua = 0;
-
-    while (izq < der) {
-        if (v[izq] < v[der]) {
-            if (v[izq] >= maxIzq) {
-                maxIzq = v[izq];
-            } else {
-                agua += maxIzq - v[izq];
+    for (int i = 0; i < n; i++) {
+        mayorIzquierda = v[i];
+        for (int j = 0; j < i; j++) {
+            if (v[j] > mayorIzquierda) {
+                mayorIzquierda = v[j];
             }
-            izq++;
-        } else {
-            if (v[der] >= maxDer) {
-                maxDer = v[der];
-            } else {
-                agua += maxDer - v[der];
-            }
-            der--;
         }
+
+        mayorDerecha = v[i];
+        for (int j = i + 1; j < n; j++) {
+            if (v[j] > mayorDerecha) {
+                mayorDerecha = v[j];
+            }
+        }
+
+        if (mayorIzquierda < mayorDerecha) {
+            menorDeLosDos = mayorIzquierda;
+        } else {
+            menorDeLosDos = mayorDerecha;
+        }
+
+        agua = agua + (menorDeLosDos - v[i]);
     }
 
     cout << "Agua atrapada = " << agua << endl;

@@ -1,43 +1,50 @@
-// Ejercicio 54 - Mezclar dos vectores intercalando
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[100], b[100], c[200];
-    int n, m, k = 0;
+    int a[100];
+    int b[100];
+    int c[200];
+    int n;
+    int m;
+    int cant = 0;
+    int mayorTam;
 
     cout << "Tamano de A: ";
     cin >> n;
     cout << "Elementos de A: ";
-    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
 
     cout << "Tamano de B: ";
     cin >> m;
     cout << "Elementos de B: ";
-    for (int i = 0; i < m; i++) cin >> b[i];
-
-    int i = 0, j = 0;
-    while (i < n && j < m) {
-        c[k] = a[i];
-        k++;
-        i++;
-        c[k] = b[j];
-        k++;
-        j++;
+    for (int i = 0; i < m; i++) {
+        cin >> b[i];
     }
 
-    while (i < n) {
-        c[k] = a[i];
-        k++;
-        i++;
-    }
-    while (j < m) {
-        c[k] = b[j];
-        k++;
-        j++;
+    if (n > m) {
+        mayorTam = n;
+    } else {
+        mayorTam = m;
     }
 
-    for (int p = 0; p < k; p++) cout << c[p] << " ";
+    for (int i = 0; i < mayorTam; i++) {
+        if (i < n) {
+            c[cant] = a[i];
+            cant = cant + 1;
+        }
+        if (i < m) {
+            c[cant] = b[i];
+            cant = cant + 1;
+        }
+    }
+
+    cout << "Resultado: ";
+    for (int i = 0; i < cant; i++) {
+        cout << c[i] << " ";
+    }
     cout << endl;
 
     return 0;

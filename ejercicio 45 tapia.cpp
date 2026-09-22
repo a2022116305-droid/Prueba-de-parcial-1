@@ -1,10 +1,14 @@
-// Ejercicio 45 - Busqueda binaria
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int n, x;
+    int n;
+    int x;
+    int inicio;
+    int fin;
+    int medio;
+    int posicion = -1;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -17,23 +21,22 @@ int main() {
     cout << "Valor a buscar: ";
     cin >> x;
 
-    int ini = 0;
-    int fin = n - 1;
-    int pos = -1;
+    inicio = 0;
+    fin = n - 1;
 
-    while (ini <= fin) {
-        int medio = (ini + fin) / 2;
+    while (inicio <= fin && posicion == -1) {
+        medio = (inicio + fin) / 2;
+
         if (v[medio] == x) {
-            pos = medio;
-            break;
+            posicion = medio;
         } else if (v[medio] < x) {
-            ini = medio + 1;
+            inicio = medio + 1;
         } else {
             fin = medio - 1;
         }
     }
 
-    cout << "Posicion = " << pos << endl;
+    cout << "Posicion = " << posicion << endl;
 
     return 0;
 }

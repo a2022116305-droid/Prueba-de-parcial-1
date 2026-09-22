@@ -1,10 +1,10 @@
-// Ejercicio 91 - Siguiente elemento mayor
 #include <iostream>
 using namespace std;
 
 int main() {
-    int v[100], res[100];
-    int pila[100];    // uso un arreglo como pila de indices
+    int v[100];
+    int resultado[100];
+    int pila[100];
     int tope = 0;
     int n;
 
@@ -12,24 +12,29 @@ int main() {
     cin >> n;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
     for (int i = n - 1; i >= 0; i--) {
         while (tope > 0 && pila[tope - 1] <= v[i]) {
-            tope--;
+            tope = tope - 1;
         }
 
         if (tope == 0) {
-            res[i] = -1;
+            resultado[i] = -1;
         } else {
-            res[i] = pila[tope - 1];
+            resultado[i] = pila[tope - 1];
         }
 
         pila[tope] = v[i];
-        tope++;
+        tope = tope + 1;
     }
 
-    for (int i = 0; i < n; i++) cout << res[i] << " ";
+    cout << "Siguiente mayor: ";
+    for (int i = 0; i < n; i++) {
+        cout << resultado[i] << " ";
+    }
     cout << endl;
 
     return 0;

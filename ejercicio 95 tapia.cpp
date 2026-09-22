@@ -1,12 +1,11 @@
-// Ejercicio 95 - Maximo de cada ventana de tamano K
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int deque[100];
-    int frente = 0, atras = 0;
-    int n, k;
+    int n;
+    int k;
+    int maximo;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,22 +13,21 @@ int main() {
     cin >> k;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
-
     for (int i = 0; i < n; i++) {
-        while (atras > frente && v[deque[atras - 1]] <= v[i]) {
-            atras--;
-        }
-        deque[atras] = i;
-        atras++;
+        cin >> v[i];
+    }
 
-        if (deque[frente] <= i - k) {
-            frente++;
+    cout << "Maximos: ";
+    for (int i = 0; i <= n - k; i++) {
+        maximo = v[i];
+
+        for (int j = i; j < i + k; j++) {
+            if (v[j] > maximo) {
+                maximo = v[j];
+            }
         }
 
-        if (i >= k - 1) {
-            cout << v[deque[frente]] << " ";
-        }
+        cout << maximo << " ";
     }
     cout << endl;
 

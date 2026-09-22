@@ -1,10 +1,12 @@
-// Ejercicio 30 - Segundo menor distinto
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int menor;
+    int segundo;
+    int existe = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,24 +16,27 @@ int main() {
         cin >> v[i];
     }
 
-    int men = v[0];
+    menor = v[0];
     for (int i = 1; i < n; i++) {
-        if (v[i] < men) men = v[i];
+        if (v[i] < menor) {
+            menor = v[i];
+        }
     }
 
-    bool hay = false;
-    int seg = 0;
+    segundo = menor;
     for (int i = 0; i < n; i++) {
-        if (v[i] != men) {
-            if (!hay || v[i] < seg) {
-                seg = v[i];
-                hay = true;
+        if (v[i] != menor) {
+            if (existe == 0) {
+                segundo = v[i];
+                existe = 1;
+            } else if (v[i] < segundo) {
+                segundo = v[i];
             }
         }
     }
 
-    if (hay) {
-        cout << "Segundo menor = " << seg << endl;
+    if (existe == 1) {
+        cout << "Segundo menor = " << segundo << endl;
     } else {
         cout << "No existe un segundo menor distinto" << endl;
     }

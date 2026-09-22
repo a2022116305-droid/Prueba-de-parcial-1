@@ -1,10 +1,11 @@
-// Ejercicio 43 - Ordenamiento por seleccion
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int posMenor;
+    int auxiliar;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -15,19 +16,20 @@ int main() {
     }
 
     for (int i = 0; i < n - 1; i++) {
-        int pos = i;
+        posMenor = i;
+
         for (int j = i + 1; j < n; j++) {
-            if (v[j] < v[pos]) {
-                pos = j;
+            if (v[j] < v[posMenor]) {
+                posMenor = j;
             }
         }
-        if (pos != i) {
-            int aux = v[i];
-            v[i] = v[pos];
-            v[pos] = aux;
-        }
+
+        auxiliar = v[i];
+        v[i] = v[posMenor];
+        v[posMenor] = auxiliar;
     }
 
+    cout << "Ordenado: ";
     for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }

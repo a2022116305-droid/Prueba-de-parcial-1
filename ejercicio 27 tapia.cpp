@@ -1,11 +1,11 @@
-// Ejercicio 27 - Producto escalar
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[100], b[100];
+    int a[100];
+    int b[100];
     int n;
-    long long prod = 0;
+    int producto = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -21,10 +21,10 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        prod += (long long)a[i] * b[i];
+        producto = producto + a[i] * b[i];
     }
 
-    cout << "Producto escalar = " << prod << endl;
+    cout << "Producto escalar = " << producto << endl;
 
     return 0;
 }

@@ -1,10 +1,12 @@
-// Ejercicio 39 - Invertir el vector in situ
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int izquierda;
+    int derecha;
+    int auxiliar;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,18 +16,21 @@ int main() {
         cin >> v[i];
     }
 
-    int i = 0;
-    int j = n - 1;
-    while (i < j) {
-        int aux = v[i];
-        v[i] = v[j];
-        v[j] = aux;
-        i++;
-        j--;
+    izquierda = 0;
+    derecha = n - 1;
+
+    while (izquierda < derecha) {
+        auxiliar = v[izquierda];
+        v[izquierda] = v[derecha];
+        v[derecha] = auxiliar;
+
+        izquierda = izquierda + 1;
+        derecha = derecha - 1;
     }
 
-    for (int k = 0; k < n; k++) {
-        cout << v[k] << " ";
+    cout << "Invertido: ";
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
     }
     cout << endl;
 

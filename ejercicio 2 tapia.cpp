@@ -1,4 +1,3 @@
-// Ejercicio 2 - Mostrar un vector en orden inverso
 #include <iostream>
 using namespace std;
 
@@ -10,7 +9,7 @@ int main() {
         cin >> v[i];
     }
 
-    // recorro desde el ultimo hasta el primero
+    cout << "Al reves: ";
     for (int i = 5; i >= 0; i--) {
         cout << v[i] << " ";
     }

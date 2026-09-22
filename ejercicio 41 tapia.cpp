@@ -1,10 +1,10 @@
-// Ejercicio 41 - Ordenamiento burbuja ascendente
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int auxiliar;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -17,13 +17,14 @@ int main() {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - 1 - i; j++) {
             if (v[j] > v[j + 1]) {
-                int aux = v[j];
+                auxiliar = v[j];
                 v[j] = v[j + 1];
-                v[j + 1] = aux;
+                v[j + 1] = auxiliar;
             }
         }
     }
 
+    cout << "Ordenado: ";
     for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }

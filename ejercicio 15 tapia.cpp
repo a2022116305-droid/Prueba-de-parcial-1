@@ -1,4 +1,3 @@
-// Ejercicio 15 - Sumar posiciones impares
 #include <iostream>
 using namespace std;
 
@@ -11,8 +10,10 @@ int main() {
         cin >> v[i];
     }
 
-    for (int i = 1; i < 8; i = i + 2) {
-        suma += v[i];
+    for (int i = 0; i < 8; i++) {
+        if (i % 2 != 0) {
+            suma = suma + v[i];
+        }
     }
 
     cout << "Suma indices impares = " << suma << endl;

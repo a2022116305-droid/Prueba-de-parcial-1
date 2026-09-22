@@ -1,52 +1,38 @@
-// Ejercicio 75 - Mayor producto de dos elementos
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int producto;
+    int mayorProducto;
+    int pos1 = 0;
+    int pos2 = 1;
 
     cout << "Ingrese N: ";
     cin >> n;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
-
-    // los dos mas grandes y los dos mas chicos
-    int may1 = v[0], may2 = v[1];
-    if (may2 > may1) {
-        int t = may1;
-        may1 = may2;
-        may2 = t;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    int men1 = may2, men2 = may1;
 
-    for (int i = 2; i < n; i++) {
-        if (v[i] > may1) {
-            may2 = may1;
-            may1 = v[i];
-        } else if (v[i] > may2) {
-            may2 = v[i];
-        }
+    mayorProducto = v[0] * v[1];
 
-        if (v[i] < men1) {
-            men2 = men1;
-            men1 = v[i];
-        } else if (v[i] < men2) {
-            men2 = v[i];
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            producto = v[i] * v[j];
+
+            if (producto > mayorProducto) {
+                mayorProducto = producto;
+                pos1 = i;
+                pos2 = j;
+            }
         }
     }
 
-    int pMay = may1 * may2;
-    int pMen = men1 * men2;
-
-    if (pMay >= pMen) {
-        cout << "Mayor producto = " << pMay;
-        cout << " (" << may2 << " * " << may1 << ")" << endl;
-    } else {
-        cout << "Mayor producto = " << pMen;
-        cout << " (" << men1 << " * " << men2 << ")" << endl;
-    }
+    cout << "Mayor producto = " << mayorProducto;
+    cout << " (" << v[pos1] << " * " << v[pos2] << ")" << endl;
 
     return 0;
 }

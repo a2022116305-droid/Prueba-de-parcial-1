@@ -1,32 +1,36 @@
-// Ejercicio 81 - QuickSort con arreglos
 #include <iostream>
 using namespace std;
 
-int particionar(int v[], int ini, int fin) {
+int particionar(int v[], int inicio, int fin) {
     int pivote = v[fin];
-    int i = ini - 1;
+    int i = inicio - 1;
+    int auxiliar;
 
-    for (int j = ini; j < fin; j++) {
+    for (int j = inicio; j < fin; j++) {
         if (v[j] <= pivote) {
-            i++;
-            int aux = v[i];
+            i = i + 1;
+
+            auxiliar = v[i];
             v[i] = v[j];
-            v[j] = aux;
+            v[j] = auxiliar;
         }
     }
 
-    int aux = v[i + 1];
+    auxiliar = v[i + 1];
     v[i + 1] = v[fin];
-    v[fin] = aux;
+    v[fin] = auxiliar;
 
     return i + 1;
 }
 
-void quickSort(int v[], int ini, int fin) {
-    if (ini < fin) {
-        int p = particionar(v, ini, fin);
-        quickSort(v, ini, p - 1);
-        quickSort(v, p + 1, fin);
+void quickSort(int v[], int inicio, int fin) {
+    int posPivote;
+
+    if (inicio < fin) {
+        posPivote = particionar(v, inicio, fin);
+
+        quickSort(v, inicio, posPivote - 1);
+        quickSort(v, posPivote + 1, fin);
     }
 }
 
@@ -38,11 +42,16 @@ int main() {
     cin >> n;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
     quickSort(v, 0, n - 1);
 
-    for (int i = 0; i < n; i++) cout << v[i] << " ";
+    cout << "Ordenado: ";
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
     cout << endl;
 
     return 0;

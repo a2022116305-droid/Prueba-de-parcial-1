@@ -1,4 +1,3 @@
-// Ejercicio 3 - Sumar todos los elementos
 #include <iostream>
 using namespace std;
 
@@ -9,6 +8,9 @@ int main() {
     cout << "Ingrese 5 numeros enteros: ";
     for (int i = 0; i < 5; i++) {
         cin >> v[i];
+    }
+
+    for (int i = 0; i < 5; i++) {
         suma = suma + v[i];
     }
 

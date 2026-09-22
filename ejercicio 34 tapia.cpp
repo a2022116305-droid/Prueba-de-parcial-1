@@ -1,33 +1,37 @@
-// Ejercicio 34 - Eliminar todas las apariciones de X
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int n, x;
+    int n;
+    int x;
+    int i;
 
     cout << "Ingrese N: ";
     cin >> n;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         cin >> v[i];
     }
 
     cout << "Valor a eliminar: ";
     cin >> x;
 
-    // k marca donde va el proximo elemento que se queda
-    int k = 0;
-    for (int i = 0; i < n; i++) {
-        if (v[i] != x) {
-            v[k] = v[i];
-            k++;
+    i = 0;
+    while (i < n) {
+        if (v[i] == x) {
+            for (int j = i; j < n - 1; j++) {
+                v[j] = v[j + 1];
+            }
+            n = n - 1;
+        } else {
+            i = i + 1;
         }
     }
-    n = k;
 
-    for (int i = 0; i < n; i++) {
+    cout << "Resultado: ";
+    for (i = 0; i < n; i++) {
         cout << v[i] << " ";
     }
     cout << endl;

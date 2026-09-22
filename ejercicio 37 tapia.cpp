@@ -1,11 +1,10 @@
-// Ejercicio 37 - Comprobar si esta ordenado ascendentemente
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
-    bool ordenado = true;
+    int ordenado = 1;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -17,16 +16,14 @@ int main() {
 
     for (int i = 0; i < n - 1; i++) {
         if (v[i] > v[i + 1]) {
-            ordenado = false;
-            break;
+            ordenado = 0;
         }
     }
 
-    cout << "Ordenado ascendentemente: ";
-    if (ordenado) {
-        cout << "SI" << endl;
+    if (ordenado == 1) {
+        cout << "Ordenado ascendentemente: SI" << endl;
     } else {
-        cout << "NO" << endl;
+        cout << "Ordenado ascendentemente: NO" << endl;
     }
 
     return 0;

@@ -1,10 +1,9 @@
-// Ejercicio 8 - Contar numeros negativos
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[8];
-    int cont = 0;
+    int negativos = 0;
 
     cout << "Ingrese 8 numeros enteros: ";
     for (int i = 0; i < 8; i++) {
@@ -13,11 +12,11 @@ int main() {
 
     for (int i = 0; i < 8; i++) {
         if (v[i] < 0) {
-            cont++;
+            negativos = negativos + 1;
         }
     }
 
-    cout << "Negativos = " << cont << endl;
+    cout << "Negativos = " << negativos << endl;
 
     return 0;
 }

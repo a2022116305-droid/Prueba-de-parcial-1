@@ -1,4 +1,3 @@
-// Ejercicio 16 - Contar ceros
 #include <iostream>
 using namespace std;
 
@@ -9,8 +8,11 @@ int main() {
     cout << "Ingrese 10 numeros enteros: ";
     for (int i = 0; i < 10; i++) {
         cin >> v[i];
+    }
+
+    for (int i = 0; i < 10; i++) {
         if (v[i] == 0) {
-            ceros++;
+            ceros = ceros + 1;
         }
     }
 

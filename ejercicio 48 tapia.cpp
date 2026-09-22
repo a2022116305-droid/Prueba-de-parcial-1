@@ -1,10 +1,11 @@
-// Ejercicio 48 - Rango y amplitud
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int minimo;
+    int maximo;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,16 +15,21 @@ int main() {
         cin >> v[i];
     }
 
-    int men = v[0];
-    int may = v[0];
+    minimo = v[0];
+    maximo = v[0];
 
     for (int i = 1; i < n; i++) {
-        if (v[i] < men) men = v[i];
-        if (v[i] > may) may = v[i];
+        if (v[i] < minimo) {
+            minimo = v[i];
+        }
+        if (v[i] > maximo) {
+            maximo = v[i];
+        }
     }
 
-    cout << "Minimo = " << men << "; Maximo = " << may;
-    cout << "; Amplitud = " << may - men << endl;
+    cout << "Minimo = " << minimo;
+    cout << "; Maximo = " << maximo;
+    cout << "; Amplitud = " << maximo - minimo << endl;
 
     return 0;
 }

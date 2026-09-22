@@ -1,4 +1,3 @@
-// Ejercicio 20 - Copiar un vector
 #include <iostream>
 using namespace std;
 

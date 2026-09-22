@@ -1,12 +1,12 @@
-// Ejercicio 21 - Intercambiar primero y ultimo
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[50];
     int n;
+    int auxiliar;
 
-    cout << "Ingrese N (2 a 50): ";
+    cout << "Ingrese N (entre 2 y 50): ";
     cin >> n;
 
     cout << "Ingrese los " << n << " elementos: ";
@@ -14,10 +14,11 @@ int main() {
         cin >> v[i];
     }
 
-    int aux = v[0];
+    auxiliar = v[0];
     v[0] = v[n - 1];
-    v[n - 1] = aux;
+    v[n - 1] = auxiliar;
 
+    cout << "Resultado: ";
     for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }

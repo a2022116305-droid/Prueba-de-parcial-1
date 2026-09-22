@@ -1,10 +1,9 @@
-// Ejercicio 12 - Elevar al cuadrado
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[5];
-    int cuad[5];
+    int cuadrados[5];
 
     cout << "Ingrese 5 numeros enteros: ";
     for (int i = 0; i < 5; i++) {
@@ -12,11 +11,12 @@ int main() {
     }
 
     for (int i = 0; i < 5; i++) {
-        cuad[i] = v[i] * v[i];
+        cuadrados[i] = v[i] * v[i];
     }
 
+    cout << "Cuadrados: ";
     for (int i = 0; i < 5; i++) {
-        cout << cuad[i] << " ";
+        cout << cuadrados[i] << " ";
     }
     cout << endl;
 

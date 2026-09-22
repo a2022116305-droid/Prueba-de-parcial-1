@@ -1,11 +1,10 @@
-// Ejercicio 17 - Buscar un valor
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[8];
     int x;
-    bool esta = false;
+    int encontrado = 0;
 
     cout << "Ingrese 8 numeros enteros: ";
     for (int i = 0; i < 8; i++) {
@@ -17,11 +16,11 @@ int main() {
 
     for (int i = 0; i < 8; i++) {
         if (v[i] == x) {
-            esta = true;
+            encontrado = 1;
         }
     }
 
-    if (esta) {
+    if (encontrado == 1) {
         cout << "Encontrado" << endl;
     } else {
         cout << "No encontrado" << endl;

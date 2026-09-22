@@ -1,10 +1,12 @@
-// Ejercicio 47 - Moda
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int moda;
+    int frecuencia = 0;
+    int cantidad;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,23 +16,26 @@ int main() {
         cin >> v[i];
     }
 
-    int moda = v[0];
-    int mejor = 0;
+    moda = v[0];
 
     for (int i = 0; i < n; i++) {
-        int cant = 0;
+        cantidad = 0;
+
         for (int j = 0; j < n; j++) {
-            if (v[j] == v[i]) cant++;
+            if (v[j] == v[i]) {
+                cantidad = cantidad + 1;
+            }
         }
 
-        // si empata me quedo con el valor mas chico
-        if (cant > mejor || (cant == mejor && v[i] < moda)) {
-            mejor = cant;
+        if (cantidad > frecuencia) {
+            frecuencia = cantidad;
+            moda = v[i];
+        } else if (cantidad == frecuencia && v[i] < moda) {
             moda = v[i];
         }
     }
 
-    cout << "Moda = " << moda << "; Frecuencia = " << mejor << endl;
+    cout << "Moda = " << moda << "; Frecuencia = " << frecuencia << endl;
 
     return 0;
 }

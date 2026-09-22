@@ -1,9 +1,10 @@
-// Ejercicio 25 - Sumar dos vectores
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[100], b[100], c[100];
+    int a[100];
+    int b[100];
+    int c[100];
     int n;
 
     cout << "Ingrese N: ";

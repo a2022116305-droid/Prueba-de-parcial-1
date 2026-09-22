@@ -1,11 +1,11 @@
-// Ejercicio 40 - Comparar dos vectores
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[100], b[100];
+    int a[100];
+    int b[100];
     int n;
-    bool iguales = true;
+    int iguales = 1;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -22,16 +22,14 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         if (a[i] != b[i]) {
-            iguales = false;
-            break;
+            iguales = 0;
         }
     }
 
-    cout << "Iguales: ";
-    if (iguales) {
-        cout << "SI" << endl;
+    if (iguales == 1) {
+        cout << "Iguales: SI" << endl;
     } else {
-        cout << "NO" << endl;
+        cout << "Iguales: NO" << endl;
     }
 
     return 0;

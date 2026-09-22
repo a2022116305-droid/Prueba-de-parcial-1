@@ -1,34 +1,34 @@
-// Ejercicio 67 - Dos numeros cuya suma sea X
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int n, x;
+    int n;
+    int x;
+    int encontrado = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
 
     cout << "Ingrese los elementos: ";
-    for (int i = 0; i < n; i++) cin >> v[i];
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
 
     cout << "Ingrese X: ";
     cin >> x;
 
-    bool encontrado = false;
-
-    for (int i = 0; i < n && !encontrado; i++) {
+    for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
-            if (v[i] + v[j] == x) {
+            if (v[i] + v[j] == x && encontrado == 0) {
                 cout << "Indices: " << i << " y " << j;
                 cout << "; Valores: " << v[i] << " + " << v[j] << " = " << x << endl;
-                encontrado = true;
-                break;
+                encontrado = 1;
             }
         }
     }
 
-    if (!encontrado) {
+    if (encontrado == 0) {
         cout << "No existe un par que sume " << x << endl;
     }
 

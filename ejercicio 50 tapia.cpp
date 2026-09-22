@@ -1,4 +1,3 @@
-// Ejercicio 50 - Elemento mas cercano al promedio
 #include <iostream>
 using namespace std;
 
@@ -6,6 +5,10 @@ int main() {
     double v[100];
     int n;
     double suma = 0;
+    double promedio;
+    double distancia;
+    double menorDistancia;
+    int posicion = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -13,25 +16,33 @@ int main() {
     cout << "Ingrese los elementos: ";
     for (int i = 0; i < n; i++) {
         cin >> v[i];
-        suma += v[i];
     }
 
-    double prom = suma / n;
+    for (int i = 0; i < n; i++) {
+        suma = suma + v[i];
+    }
 
-    int pos = 0;
-    double mejorDist = v[0] - prom;
-    if (mejorDist < 0) mejorDist = -mejorDist;
+    promedio = suma / n;
+
+    menorDistancia = v[0] - promedio;
+    if (menorDistancia < 0) {
+        menorDistancia = menorDistancia * (-1);
+    }
 
     for (int i = 1; i < n; i++) {
-        double d = v[i] - prom;
-        if (d < 0) d = -d;
-        if (d < mejorDist) {
-            mejorDist = d;
-            pos = i;
+        distancia = v[i] - promedio;
+        if (distancia < 0) {
+            distancia = distancia * (-1);
+        }
+
+        if (distancia < menorDistancia) {
+            menorDistancia = distancia;
+            posicion = i;
         }
     }
 
-    cout << "Promedio = " << prom << "; Mas cercano = " << v[pos] << endl;
+    cout << "Promedio = " << promedio;
+    cout << "; Mas cercano = " << v[posicion] << endl;
 
     return 0;
 }

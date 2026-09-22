@@ -1,10 +1,10 @@
-// Ejercicio 32 - Eliminar logicamente un elemento por posicion
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int n, p;
+    int n;
+    int p;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -19,19 +19,19 @@ int main() {
 
     if (p < 0 || p >= n) {
         cout << "Posicion invalida" << endl;
-        return 0;
-    }
+    } else {
+        for (int i = p; i < n - 1; i++) {
+            v[i] = v[i + 1];
+        }
 
-    // corro todo un lugar a la izquierda desde p
-    for (int i = p; i < n - 1; i++) {
-        v[i] = v[i + 1];
-    }
-    n--;   // tamano logico
+        n = n - 1;
 
-    for (int i = 0; i < n; i++) {
-        cout << v[i] << " ";
+        cout << "Resultado: ";
+        for (int i = 0; i < n; i++) {
+            cout << v[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
 
     return 0;
 }

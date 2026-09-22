@@ -1,11 +1,10 @@
-// Ejercicio 18 - Obtener la primera posicion de un valor
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[10];
     int x;
-    int pos = -1;
+    int posicion = -1;
 
     cout << "Ingrese 10 numeros enteros: ";
     for (int i = 0; i < 10; i++) {
@@ -17,12 +16,13 @@ int main() {
 
     for (int i = 0; i < 10; i++) {
         if (v[i] == x) {
-            pos = i;
-            break;   // solo me interesa la primera
+            if (posicion == -1) {
+                posicion = i;
+            }
         }
     }
 
-    cout << "Primera posicion = " << pos << endl;
+    cout << "Primera posicion = " << posicion << endl;
 
     return 0;
 }

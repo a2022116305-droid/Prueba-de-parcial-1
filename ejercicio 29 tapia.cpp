@@ -1,10 +1,12 @@
-// Ejercicio 29 - Segundo mayor distinto
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int mayor;
+    int segundo;
+    int existe = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -14,25 +16,27 @@ int main() {
         cin >> v[i];
     }
 
-    int may = v[0];
+    mayor = v[0];
     for (int i = 1; i < n; i++) {
-        if (v[i] > may) may = v[i];
+        if (v[i] > mayor) {
+            mayor = v[i];
+        }
     }
 
-    // busco el mayor de los que son distintos al maximo
-    bool hay = false;
-    int seg = 0;
+    segundo = mayor;
     for (int i = 0; i < n; i++) {
-        if (v[i] != may) {
-            if (!hay || v[i] > seg) {
-                seg = v[i];
-                hay = true;
+        if (v[i] != mayor) {
+            if (existe == 0) {
+                segundo = v[i];
+                existe = 1;
+            } else if (v[i] > segundo) {
+                segundo = v[i];
             }
         }
     }
 
-    if (hay) {
-        cout << "Segundo mayor = " << seg << endl;
+    if (existe == 1) {
+        cout << "Segundo mayor = " << segundo << endl;
     } else {
         cout << "No existe un segundo mayor distinto" << endl;
     }

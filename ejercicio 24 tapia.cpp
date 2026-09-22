@@ -1,11 +1,13 @@
-// Ejercicio 24 - Separar pares e impares
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
-    int pares[100], impares[100];
-    int n, cp = 0, ci = 0;
+    int pares[100];
+    int impares[100];
+    int n;
+    int cantPares = 0;
+    int cantImpares = 0;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -17,21 +19,21 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         if (v[i] % 2 == 0) {
-            pares[cp] = v[i];
-            cp++;
+            pares[cantPares] = v[i];
+            cantPares = cantPares + 1;
         } else {
-            impares[ci] = v[i];
-            ci++;
+            impares[cantImpares] = v[i];
+            cantImpares = cantImpares + 1;
         }
     }
 
     cout << "Pares: ";
-    for (int i = 0; i < cp; i++) {
+    for (int i = 0; i < cantPares; i++) {
         cout << pares[i] << " ";
     }
 
     cout << "; Impares: ";
-    for (int i = 0; i < ci; i++) {
+    for (int i = 0; i < cantImpares; i++) {
         cout << impares[i] << " ";
     }
     cout << endl;

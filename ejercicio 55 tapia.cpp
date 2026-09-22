@@ -1,45 +1,57 @@
-// Ejercicio 55 - Fusionar dos vectores ordenados
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a[100], b[100], c[200];
-    int n, m, k = 0;
+    int a[100];
+    int b[100];
+    int c[200];
+    int n;
+    int m;
+    int i = 0;
+    int j = 0;
+    int cant = 0;
 
     cout << "Tamano de A: ";
     cin >> n;
     cout << "Elementos de A (ordenados): ";
-    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int k = 0; k < n; k++) {
+        cin >> a[k];
+    }
 
     cout << "Tamano de B: ";
     cin >> m;
     cout << "Elementos de B (ordenados): ";
-    for (int i = 0; i < m; i++) cin >> b[i];
+    for (int k = 0; k < m; k++) {
+        cin >> b[k];
+    }
 
-    int i = 0, j = 0;
     while (i < n && j < m) {
         if (a[i] <= b[j]) {
-            c[k] = a[i];
-            i++;
+            c[cant] = a[i];
+            i = i + 1;
         } else {
-            c[k] = b[j];
-            j++;
+            c[cant] = b[j];
+            j = j + 1;
         }
-        k++;
+        cant = cant + 1;
     }
 
     while (i < n) {
-        c[k] = a[i];
-        i++;
-        k++;
-    }
-    while (j < m) {
-        c[k] = b[j];
-        j++;
-        k++;
+        c[cant] = a[i];
+        i = i + 1;
+        cant = cant + 1;
     }
 
-    for (int p = 0; p < k; p++) cout << c[p] << " ";
+    while (j < m) {
+        c[cant] = b[j];
+        j = j + 1;
+        cant = cant + 1;
+    }
+
+    cout << "Fusionado: ";
+    for (int k = 0; k < cant; k++) {
+        cout << c[k] << " ";
+    }
     cout << endl;
 
     return 0;

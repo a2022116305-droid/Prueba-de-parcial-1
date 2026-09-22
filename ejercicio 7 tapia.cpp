@@ -1,10 +1,9 @@
-// Ejercicio 7 - Contar numeros positivos
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[8];
-    int cont = 0;
+    int positivos = 0;
 
     cout << "Ingrese 8 numeros enteros: ";
     for (int i = 0; i < 8; i++) {
@@ -13,11 +12,11 @@ int main() {
 
     for (int i = 0; i < 8; i++) {
         if (v[i] > 0) {
-            cont++;
+            positivos = positivos + 1;
         }
     }
 
-    cout << "Positivos = " << cont << endl;
+    cout << "Positivos = " << positivos << endl;
 
     return 0;
 }

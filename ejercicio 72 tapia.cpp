@@ -1,11 +1,12 @@
-// Ejercicio 72 - Equilibrio izquierda-derecha
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
-    int total = 0;
+    int sumaIzquierda;
+    int sumaDerecha;
+    int indice = -1;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -13,19 +14,22 @@ int main() {
     cout << "Ingrese los elementos: ";
     for (int i = 0; i < n; i++) {
         cin >> v[i];
-        total += v[i];
     }
 
-    int izq = 0;
-    int indice = -1;
-
     for (int i = 0; i < n; i++) {
-        int der = total - izq - v[i];
-        if (izq == der) {
-            indice = i;
-            break;
+        sumaIzquierda = 0;
+        for (int j = 0; j < i; j++) {
+            sumaIzquierda = sumaIzquierda + v[j];
         }
-        izq += v[i];
+
+        sumaDerecha = 0;
+        for (int j = i + 1; j < n; j++) {
+            sumaDerecha = sumaDerecha + v[j];
+        }
+
+        if (sumaIzquierda == sumaDerecha && indice == -1) {
+            indice = i;
+        }
     }
 
     if (indice == -1) {

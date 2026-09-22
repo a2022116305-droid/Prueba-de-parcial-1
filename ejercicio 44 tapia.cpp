@@ -1,10 +1,11 @@
-// Ejercicio 44 - Ordenamiento por insercion
 #include <iostream>
 using namespace std;
 
 int main() {
     int v[100];
     int n;
+    int actual;
+    int j;
 
     cout << "Ingrese N: ";
     cin >> n;
@@ -15,15 +16,18 @@ int main() {
     }
 
     for (int i = 1; i < n; i++) {
-        int actual = v[i];
-        int j = i - 1;
+        actual = v[i];
+        j = i - 1;
+
         while (j >= 0 && v[j] > actual) {
             v[j + 1] = v[j];
-            j--;
+            j = j - 1;
         }
+
         v[j + 1] = actual;
     }
 
+    cout << "Ordenado: ";
     for (int i = 0; i < n; i++) {
         cout << v[i] << " ";
     }
